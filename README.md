@@ -45,6 +45,7 @@ rental chaincode
 ```text
 fabric-node-rest-sample/
 ├── README.md
+├── node-red-flow
 └── fabric-rental-node24-rest/
     ├── scripts/
     ├── chaincode/
@@ -64,8 +65,8 @@ fabric-node-rest-sample/
 以下のような構成になっています。
 ```text
 fabric-node-rest-sample/
-├──fabric-rental-node24-rest/
-└──node-red-flow/
+├── fabric-rental-node24-rest/
+└── node-red-flow/
 ```
 
 任意の作業ディレクトリで以下を実行します。
@@ -79,9 +80,9 @@ chmod +x install-fabric.sh
 以下のような構成になります。
 ```text
 fabric-node-rest-sample/
-├──fabric-samples/
-├──fabric-rental-node24-rest/
-└──node-red-flow/
+├── fabric-samples/
+├── fabric-rental-node24-rest/
+└── node-red-flow/
 ```
 
 ## 7. Fabric ネットワーク起動とチェーンコードデプロイ
