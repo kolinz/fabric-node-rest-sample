@@ -65,9 +65,13 @@ fabric-node-rest-sample/
 └── node-red-flow/
 ```
 
-任意の作業ディレクトリで以下を実行します。
+Dockerを実行できる状態にします。
+
+以下を実行します。
 
 ```bash
+git clone https://github.com/kolinz/fabric-node-rest-sample.git
+cd fabric-node-rest-sample
 curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh
 chmod +x install-fabric.sh
 ./install-fabric.sh --fabric-version 2.5.15 --ca-version 1.5.17 docker samples binary
