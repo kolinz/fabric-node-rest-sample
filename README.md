@@ -81,6 +81,13 @@ chmod +x install-fabric.sh
 - Hyperledger Fabric version 2.5.15
 - ca version 1.5.17
 
+確認コマンド
+
+```bash
+./fabric-samples/bin/peer version
+./fabric-samples/bin/fabric-ca-client version
+```
+
 以下のような構成になります。
 ```text
 fabric-node-rest-sample/
