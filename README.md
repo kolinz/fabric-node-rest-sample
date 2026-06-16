@@ -79,7 +79,7 @@ Dockerを実行できる状態にします。
 ```bash
 curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh
 chmod +x install-fabric.sh
-./install-fabric.sh --fabric-version 2.5.15 --ca-version 1.5.17 docker samples binary
+./install-fabric.sh docker samples binary
 ```
 
 以下のような構成になります。
@@ -94,22 +94,23 @@ fabric-node-rest-sample/
 
 ```bash
 cd fabric-rental-node24-rest
+chmod +x scripts/network-up.sh
 ./scripts/network-up.sh
 ```
 
-## 8. API アプリのセットアップ
-
+## 8. API アプリのセットアップ (初回)
+node.jsで書かれたスマートコントラクトの導入
 ```bash
-cd fabric-rental-node24-rest/chaincode/rental-js
+cd chaincode/rental-js
 npm install
 ```
-
+APIアプリの導入
 ```bash
 cd ../../app
 npm install
 ```
 
-## 9. 初期データ登録
+## 9. 初期データ登録 (スマートコントラクトの変更毎)
 
 CLIから初期データを登録します。
 
