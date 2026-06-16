@@ -78,8 +78,8 @@ chmod +x install-fabric.sh
 ./install-fabric.sh docker samples binary
 ```
 2026年6月16日時点の下記で動作確認済みです。
-Hyperledger Fabric version 2.5.15
-ca version 1.5.17
+- Hyperledger Fabric version 2.5.15
+- ca version 1.5.17
 
 以下のような構成になります。
 ```text
