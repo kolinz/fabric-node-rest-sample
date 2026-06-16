@@ -58,7 +58,14 @@ fabric-node-rest-sample/
 
 ## 6. Fabric samples の準備
 
-以下のような構成になっています。
+次のコマンドを実行します。
+
+```bash
+git clone https://github.com/kolinz/fabric-node-rest-sample.git
+cd fabric-node-rest-sample
+```
+
+下のような構成になっています。
 ```text
 fabric-node-rest-sample/
 ├── fabric-rental-node24-rest/
@@ -70,8 +77,6 @@ Dockerを実行できる状態にします。
 以下を実行します。
 
 ```bash
-git clone https://github.com/kolinz/fabric-node-rest-sample.git
-cd fabric-node-rest-sample
 curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh
 chmod +x install-fabric.sh
 ./install-fabric.sh --fabric-version 2.5.15 --ca-version 1.5.17 docker samples binary
