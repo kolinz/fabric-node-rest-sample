@@ -279,6 +279,6 @@ REST APIはブロックチェーンの外側にあります。業務ルールの
 5. REST APIで、車両の履歴確認（TXIDを確認すること。TXIDが確認できれば、ブロックチェーンが機能している証拠になる）
 6. REST APIで、車両の削除
 7. Node-REDを使って、上記を実施
-   - node-red-flowディレクトリ下のflows.jsonを使うと楽
-   - flows.json内のIPアドレスは各自の環境に書き換えて
+   - node-red-flowディレクトリ下のflows.jsonをインポート（import）して使うと楽
+     - flows.json内のIPアドレスは各自の環境に書き換えて
    - Node-REDの起動方法は[公式ドキュメント](https://nodered.jp/docs/getting-started/)みてください << ここではDockerが楽ですが。
