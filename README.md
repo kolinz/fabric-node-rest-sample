@@ -95,6 +95,7 @@ fabric-node-rest-sample/
 ```bash
 cd fabric-rental-node24-rest
 chmod +x scripts/network-up.sh
+chmod +x scripts/network-down.sh
 ./scripts/network-up.sh
 ```
 
@@ -292,6 +293,28 @@ REST APIはブロックチェーンの外側にあります。業務ルールの
 5. REST APIで、車両の履歴確認（TXIDを確認すること。TXIDが確認できれば、ブロックチェーンが機能している証拠になる）
 6. REST APIで、車両の削除
 7. Node-REDを使って、上記を実施
-   - node-red-flowディレクトリ下のflows.jsonをインポート（import）して使うと楽
-     - flows.json内のIPアドレスは各自の環境に書き換えて
+   - node-red-flowディレクトリ下のflows.jsonをインポート（import）して使うと楽。
+     - flows.json内のIPアドレスは各自の環境に書き換えてください。ip a コマンドで、IPアドレスがわかります。eth0のように表示されたNICのIPアドレスを使います。
    - Node-REDの起動方法は[公式ドキュメント](https://nodered.jp/docs/getting-started/)みてください << ここではDockerが楽ですが。
+   -   REST APIを実行している方の画面で、Node-REDを起動すること。
+
+## 18. Node-REDの停止
+
+Docker stop コマンドを使い、Node-REDを停止する。Docker DesktopやOrbStackを使っている場合は、ツール側で止める。
+
+## 19. Fabric ネットワークの停止
+
+APIサーバーの起動コマンドであり、下記を実行したウィンドウに切り替える
+```bash
+npm run api
+```
+
+Ctrl+Cキーを押して、APIサーバーを停止する
+
+下記のコマンドを実行し、Fabric ネットワークを停止する
+```bash
+cd ../
+./scripts/network-down.sh
+```
+
+
