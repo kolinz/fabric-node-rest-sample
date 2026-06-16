@@ -7,7 +7,7 @@
 単なる Asset Transfer ではなく、業務システム風のデータ項目と業務ルールを持たせています。
 
 ## 2. 採用技術
-### 2-1. 主要技術
+
 ```text
 Hyperledger Fabric: 2.5 LTS
 Fabric Network: fabric-samples/test-network
@@ -15,12 +15,6 @@ Chaincode: Node.js 24 / JavaScript
 Client/API: Node.js 24 / Express
 Communication: Fabric Gateway SDK
 Runtime: Docker / Docker Compose
-```
-### 2-2. 前提
-```text
-Ubuntu 24.04
-Node.js 24
-Docker / Docker Compose << Windowsの場合は、Docker DesktopのWSL2インテグレーションでOK
 ```
 
 ## 3. 全体構成
@@ -50,11 +44,13 @@ fabric-node-rest-sample/
 
 ## 5. 前提ソフトウェア
 
+- Ubuntu 24.04
 - Docker
 - Docker Compose
 - Node.js 24
 - Git
 - curl
+- jq
 
 ## 6. Fabric samples の準備
 
@@ -90,7 +86,7 @@ fabric-node-rest-sample/
 └── node-red-flow/
 ```
 
-## 7. Fabric ネットワーク起動とチェーンコードデプロイ
+## 7. Fabric ネットワーク起動
 
 ```bash
 cd fabric-rental-node24-rest
@@ -100,7 +96,7 @@ chmod +x scripts/network-down.sh
 ```
 
 ## 8. API アプリのセットアップ (初回)
-node.jsで書かれたスマートコントラクトの導入
+node.jsで書かれたチェーンコード（スマートコントラクト）の導入
 ```bash
 cd chaincode/rental-js
 npm install
