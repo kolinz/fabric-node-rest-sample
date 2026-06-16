@@ -70,13 +70,16 @@ fabric-node-rest-sample/
 
 Dockerを実行できる状態にします。
 
-以下を実行します。
+Hyperledger Fabricによるブロックチェーンネットワークサンプル環境取得のため、以下を実行します。
 
 ```bash
 curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh
 chmod +x install-fabric.sh
 ./install-fabric.sh docker samples binary
 ```
+2026年6月16日時点の下記で動作確認済みです。
+Hyperledger Fabric version 2.5.15
+ca version 1.5.17
 
 以下のような構成になります。
 ```text
