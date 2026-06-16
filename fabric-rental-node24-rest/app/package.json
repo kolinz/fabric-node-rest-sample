@@ -1,0 +1,31 @@
+{
+  "name": "rental-api",
+  "version": "1.0.0",
+  "description": "Node.js 24 Express REST API for rental car chaincode",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "api": "node src/server.js",
+    "init": "node src/cli.js init",
+    "list": "node src/cli.js list",
+    "available": "node src/cli.js available",
+    "read": "node src/cli.js read",
+    "create": "node src/cli.js create",
+    "rent": "node src/cli.js rent",
+    "return": "node src/cli.js return",
+    "delete": "node src/cli.js delete"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@hyperledger/fabric-gateway": "^1.8.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=24"
+  }
+}

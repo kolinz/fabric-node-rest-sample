@@ -1,0 +1,11 @@
+{
+  "name": "rental-chaincode-rest",
+  "version": "1.0.0",
+  "description": "Business-style rental car chaincode for Hyperledger Fabric 2.5 LTS",
+  "main": "index.js",
+  "scripts": { "start": "fabric-chaincode-node start" },
+  "dependencies": {
+    "fabric-contract-api": "^2.5.8",
+    "fabric-shim": "^2.5.8"
+  }
+}

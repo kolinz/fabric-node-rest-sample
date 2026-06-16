@@ -1,0 +1,573 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Blockchain : Rent a Car",
+        "disabled": false,
+        "info": "Hyperledger Fabricを使ったレンタカーフロー"
+    },
+    {
+        "id": "inject_get_cars",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "Get cars",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "http_get_cars"
+            ]
+        ]
+    },
+    {
+        "id": "http_get_cars",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://172.29.33.209:3000/api/cars",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "debug_cars"
+            ]
+        ]
+    },
+    {
+        "id": "debug_cars",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7dee5065e0442714",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "CAR004",
+        "payloadType": "str",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "580a1ecd76149de9"
+            ]
+        ]
+    },
+    {
+        "id": "9aba0ac3d8964c6a",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://172.29.33.209:3000/api/cars",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "02f9373a1fc5be39"
+            ]
+        ]
+    },
+    {
+        "id": "02f9373a1fc5be39",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "580a1ecd76149de9",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 1",
+        "func": "const carId = msg.payload;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.payload = {\n    carId: carId,\n    plateNumber: \"宇都宮300あ1234\",\n    manufacturer: \"Toyota\",\n    model: \"Yaris\",\n    modelYear: 2024,\n    vehicleClass: \"COMPACT\",\n    mileage: 1000\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "9aba0ac3d8964c6a"
+            ]
+        ]
+    },
+    {
+        "id": "c9079bed45c07a09",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両一覧",
+        "info": "",
+        "x": 100,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0af2d45419b894d5",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両の新規登録",
+        "info": "",
+        "x": 120,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b5a074d8176d0db9",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "CAR004",
+        "payloadType": "str",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "2f0b37f3449bfd1f"
+            ]
+        ]
+    },
+    {
+        "id": "f64d39687872d15e",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "f84f8dcdab8fe474"
+            ]
+        ]
+    },
+    {
+        "id": "f84f8dcdab8fe474",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2f0b37f3449bfd1f",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 2",
+        "func": "const carId = msg.payload;\nconst customerId = \"CUST001\";\nconst customerName = \"山田太郎\";\nconst customerPhone = \"090-0000-0000\";\n\nmsg.carId = carId;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.payload = {\n    customerId: customerId,\n    customerName: customerName,\n    customerPhone: customerPhone,\n    rentedAt: \"2026-06-10T10:00:00+09:00\",\n    expectedReturnAt: \"2026-06-10T18:00:00+09:00\"\n};\n\nmsg.url = `http://172.29.33.209:3000/api/cars/${carId}/rent`;\nnode.warn(msg.url);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "f64d39687872d15e"
+            ]
+        ]
+    },
+    {
+        "id": "3bf0926efad5dc21",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両の貸し出し",
+        "info": "",
+        "x": 120,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2e15f746bce087ad",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "CAR004",
+        "payloadType": "str",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "bfd61472f856ff71"
+            ]
+        ]
+    },
+    {
+        "id": "2bcacf0214202a66",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "80a45563390e882b"
+            ]
+        ]
+    },
+    {
+        "id": "80a45563390e882b",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "bfd61472f856ff71",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 3",
+        "func": "const carId = msg.payload;\nconst mileage = \"1120\";\nconst returnedAt = \"2026-06-10T17:30:00+09:00\";\n\nmsg.carId = carId;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.payload = {\n    \"mileage\": mileage,\n    \"returnedAt\": returnedAt\n};\n\nmsg.url = `http://172.29.33.209:3000/api/cars/${carId}/return`;\nnode.warn(msg.url);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "2bcacf0214202a66"
+            ]
+        ]
+    },
+    {
+        "id": "a2de1cbff7b64631",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両の返却",
+        "info": "",
+        "x": 100,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c06396c95908f9aa",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "CAR004",
+        "payloadType": "str",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "a487aa338bde18ab"
+            ]
+        ]
+    },
+    {
+        "id": "a37b335fb97427ae",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "598e507fc8112b4b"
+            ]
+        ]
+    },
+    {
+        "id": "598e507fc8112b4b",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "551979bfdb389ced",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両詳細",
+        "info": "",
+        "x": 100,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a487aa338bde18ab",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 4",
+        "func": "const carId = msg.payload;\n\nmsg.carId = carId;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.url = `http://172.29.33.209:3000/api/cars/${carId}`;\nnode.warn(msg.url);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "a37b335fb97427ae"
+            ]
+        ]
+    },
+    {
+        "id": "95b5010d1828f0c4",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "CAR004",
+        "payloadType": "str",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "a77ffe52eee3bdaa"
+            ]
+        ]
+    },
+    {
+        "id": "344b97ffa0584b1c",
+        "type": "http request",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 530,
+        "y": 620,
+        "wires": [
+            [
+                "4011bfabfdfc4473"
+            ]
+        ]
+    },
+    {
+        "id": "4011bfabfdfc4473",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5d650e619f30253a",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "車両貸し出し履歴",
+        "info": "",
+        "x": 130,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "a77ffe52eee3bdaa",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 5",
+        "func": "const carId = msg.payload;\n\nmsg.carId = carId;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.url = `http://172.29.33.209:3000/api/cars/${carId}/history`;\nnode.warn(msg.url);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 620,
+        "wires": [
+            [
+                "344b97ffa0584b1c"
+            ]
+        ]
+    }
+]

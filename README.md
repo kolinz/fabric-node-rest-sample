@@ -2,30 +2,19 @@
 
 ## 1. この教材の目的
 
-この教材は、Linux + Hyperledger Fabric 2.5 LTS 上に、レンタカーの貸出・返却を行うスマートコントラクトを実装し、Node.js 24 + Express による REST API から操作するための最小構成です。
+この教材は、Hyperledger Fabric 2.5 LTS 上に、レンタカーの貸出・返却を行うスマートコントラクトを実装し、Node.js 24 + Express による REST API から操作するための最小構成です。
 
 単なる Asset Transfer ではなく、業務システム風のデータ項目と業務ルールを持たせています。
 
 ## 2. 採用技術
 
 ```text
-Node.js 24
-Node-RED
 Hyperledger Fabric: 2.5 LTS
 Fabric Network: fabric-samples/test-network
 Chaincode: Node.js 24 / JavaScript
 Client/API: Node.js 24 / Express
 Communication: Fabric Gateway SDK
 Runtime: Docker / Docker Compose
-```
-
-Node.js 24 をインストールしていない場合は、下記の手順
-```text
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-\. "$HOME/.nvm/nvm.sh"
-nvm install 24
-node -v
-npm -v
 ```
 
 ## 3. 全体構成
@@ -45,7 +34,6 @@ rental chaincode
 ```text
 fabric-node-rest-sample/
 ├── README.md
-├── node-red-flow
 └── fabric-rental-node24-rest/
     ├── scripts/
     ├── chaincode/
@@ -65,8 +53,7 @@ fabric-node-rest-sample/
 以下のような構成になっています。
 ```text
 fabric-node-rest-sample/
-├── fabric-rental-node24-rest/
-└── node-red-flow/
+└──fabric-rental-node24-rest/
 ```
 
 任意の作業ディレクトリで以下を実行します。
@@ -80,9 +67,8 @@ chmod +x install-fabric.sh
 以下のような構成になります。
 ```text
 fabric-node-rest-sample/
-├── fabric-samples/
-├── fabric-rental-node24-rest/
-└── node-red-flow/
+├──fabric-samples/
+└──fabric-rental-node24-rest/
 ```
 
 ## 7. Fabric ネットワーク起動とチェーンコードデプロイ
@@ -276,10 +262,8 @@ REST APIはブロックチェーンの外側にあります。業務ルールの
 
 ## 17. 授業課題例
 
-1. REST APIを使って、車両一覧の取得
-2. REST APIを使って、車両の新規登録
-3. REST APIを使って、車両の貸し出し
-4. REST APIを使って、車両の返却
-5. REST APIを使って、車両の履歴（history）を確認
-6. 上記を、Node-REDを使って実装（インポート可能なサンプルフローは、node-red-flowディレクトリにある）
-
+1. 車両クラスに `MINIVAN` を追加する
+2. 顧客電話番号の形式チェックを追加する
+3. 返却時に利用料金を計算する
+4. 返却履歴を複数件保存できるようにする
+5. Reactなどで簡単なフロントエンドを作成する
