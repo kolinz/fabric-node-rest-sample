@@ -261,7 +261,7 @@ npm run delete -- CAR004
 - `mileage` は 0 以上の整数
 - `vehicleClass` は `COMPACT`, `SEDAN`, `SUV`, `VAN`, `TRUCK`, `EV` のみ
 - 貸出中の車両は二重貸出できない
-- 返却時の走行距離は、貸出開始時の走行距離以上でなければならない
+- 返却時の走行距離(mileage)は、貸出開始時の走行距離以上でなければならない
 - 貸出中の車両は削除できない
 
 ## 16. Express API の役割
