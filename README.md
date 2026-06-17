@@ -196,6 +196,16 @@ npm run init
 npm run api
 ```
 
+実行結果
+```text
+> rental-api@1.0.0 api
+> node src/server.js
+
+Rental REST API listening on http://localhost:3000
+```
+APIサーバー起動中は、画面を閉じない。画面閉じたい場合、バックグラウンド処理ができるように、コマンド書き換えてください。
+
+
 標準では以下で起動します。
 
 ```text
