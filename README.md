@@ -44,13 +44,13 @@ fabric-node-rest-sample/
 
 ## 5. 前提ソフトウェア
 
-- Ubuntu 24.04
-- Docker
-- Docker Compose
-- Node.js 24
-- Git
-- curl
-- jq
+- 仮想マシン実行環境 : [WSL2](https://learn.microsoft.com/ja-jp/windows/wsl/install) / [UTM](https://mac.getutm.app/) / [VirtualBox](https://www.virtualbox.org/) など
+- [Ubuntu 24.04](https://www.ubuntulinux.jp/ubuntu)
+- [Docker / Docker Compose](https://www.docker.com/ja-jp/)
+- [Node.js 24](https://nodejs.org/ja/download)
+- Git (sudo apt install git)
+- curl (sudo apt install curl)
+- jq (sudo apt install jq)
 
 ## 6. Fabric samples の準備
 
