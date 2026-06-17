@@ -99,6 +99,7 @@ fabric-node-rest-sample/
 ## 7. Fabric ネットワーク起動
 
 ```bash
+docker pull hyperledger/fabric-nodeenv:2.5
 cd fabric-rental-node24-rest
 chmod +x scripts/network-up.sh
 chmod +x scripts/network-down.sh
