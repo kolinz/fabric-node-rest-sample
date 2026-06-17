@@ -106,6 +106,16 @@ chmod +x scripts/network-down.sh
 ./scripts/network-up.sh
 ```
 
+実行結果
+```text
+Fabric test-network is ready.
+Channel name        : mychannel
+Chaincode name      : rental
+Fabric image tag    : 2.5.15
+Fabric CA image tag : 1.5.17
+Compose project name: docker
+```
+
 ## 8. API アプリのセットアップ (初回)
 node.jsで書かれたチェーンコード（スマートコントラクト）の導入
 ```bash
@@ -126,6 +136,60 @@ CLIから初期データを登録します。
 npm run init
 ```
 
+実行結果
+
+```text
+> rental-api@1.0.0 init
+> node src/cli.js init
+
+[
+  {
+    "docType": "car",
+    "carId": "CAR001",
+    "plateNumber": "UTSUNOMIYA-300-A-1001",
+    "manufacturer": "Toyota",
+    "model": "Aqua",
+    "modelYear": 2023,
+    "vehicleClass": "COMPACT",
+    "status": "AVAILABLE",
+    "currentRental": null,
+    "lastRental": null,
+    "mileage": 12000,
+    "createdAt": "2026-06-17T00:40:50.358Z",
+    "updatedAt": "2026-06-17T00:40:50.358Z"
+  },
+  {
+    "docType": "car",
+    "carId": "CAR002",
+    "plateNumber": "UTSUNOMIYA-300-A-1002",
+    "manufacturer": "Honda",
+    "model": "Fit",
+    "modelYear": 2022,
+    "vehicleClass": "COMPACT",
+    "status": "AVAILABLE",
+    "currentRental": null,
+    "lastRental": null,
+    "mileage": 8300,
+    "createdAt": "2026-06-17T00:40:50.358Z",
+    "updatedAt": "2026-06-17T00:40:50.358Z"
+  },
+  {
+    "docType": "car",
+    "carId": "CAR003",
+    "plateNumber": "UTSUNOMIYA-300-A-1003",
+    "manufacturer": "Nissan",
+    "model": "Note",
+    "modelYear": 2024,
+    "vehicleClass": "EV",
+    "status": "AVAILABLE",
+    "currentRental": null,
+    "lastRental": null,
+    "mileage": 15100,
+    "createdAt": "2026-06-17T00:40:50.358Z",
+    "updatedAt": "2026-06-17T00:40:50.358Z"
+  }
+]
+```
 ## 10. REST API サーバー起動
 
 ```bash
